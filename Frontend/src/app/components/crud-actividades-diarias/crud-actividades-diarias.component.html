@@ -1,0 +1,86 @@
+<div class="bodyComponents">
+    <div class="text-center lg:text-left">
+      <h1 class="text-3xl text-center font-bold">Doctor</h1>
+    </div>
+    <div class="flex flex-row justify-between items-center">
+      <div class="flex flex-row">
+        <button class="btn btn-outline btn-accent" onclick="my_modal_3.showModal()">
+          <img src= "../../../assets/imagenes/boton-agregar.png" alt="+">
+          <p class="items-center mx-2">ingresar</p>
+        </button>
+  
+      </div>
+    </div>
+    <hr>
+    <div class="flex flex-row overflow-x-auto justify-self-center" *ngIf="datos.length > 0 ">
+      <table class="table table-zebra text-lg">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NombreActividad</th>
+            <th>FechaActividad</th>
+            <th>doctorId</th>
+            <th>DetalleActividad</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ActividadesDiarias of datos">
+            <td>{{ ActividadesDiarias.id }}</td>
+            <td>{{ ActividadesDiarias.nombreActividad }}</td>
+            <td>{{ ActividadesDiarias.detalleActividad }}</td>
+            <td>{{ ActividadesDiarias.fechaActividad}}</td>
+            <td>{{ ActividadesDiarias.doctorId}}</td>
+            
+
+
+            <td>
+              <button class="btn btn-outline btn-info" onclick="my_modal_2.showModal()" (click)="ObtenerDatosE(ActividadesDiarias)">Editar</button>
+              <button class="btn btn-outline btn-secondary" (click)="ActividadesDiarias && EliminarDatos(ActividadesDiarias?.id)">Eliminar</button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+     
+  
+  
+    <dialog id="my_modal_3" class="modal" >
+      <form  [formGroup]="ActividadesDiariasForm" method="dialog" class="modal-box" (ngSubmit)="AgregarDatos()">
+        
+        <!-- Campos del formulario -->
+        <h3 class="font-bold text-lg"> - CREAR - </h3>
+        <input class="m-2 p-2" type="text" placeholder="NombreActividad" formControlName="nombreActividad">
+        <input class="m-2 p-2" type="text" placeholder="detalleActividad" formControlName="detalleActividad">
+        <input class="m-2 p-2" type="text" placeholder="fechaActividad" formControlName="fechaActividad">
+        <input class="m-2 p-2" type="text" placeholder="doctorId" formControlName="doctorId">
+    
+
+        <button class="btn btn-outline btn-error" type="submit">Enviar</button>
+        <p class="py-4">Presione la tecla ESC o haga clic fuera para cerrar</p>
+      </form>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+  
+  
+    <dialog id="my_modal_2" class="modal" >
+      <form  [formGroup]="UpdateActividadesDiariasForm" method="dialog" class="modal-box" (ngSubmit)="UpdateDatos()">
+
+        <!-- Campos del formulario -->
+        <h3 class="font-bold text-lg"> - CREAR - </h3>
+        <input class="m-2 p-2" type="text" placeholder="id" formControlName="id" [value]="ActividadesDiariasSeleccionado?.id">
+        <input class="m-2 p-2" type="text" placeholder="nombreActividad" formControlName="nombreActividad" [value]="ActividadesDiariasSeleccionado?.nombreActividad">
+        <input class="m-2 p-2" type="text" placeholder="detalleActividad" formControlName="detalleActividad" [value]="ActividadesDiariasSeleccionado?.detalleActividad">
+        <input class="m-2 p-2" type="text" placeholder="fechaActividad" formControlName="fechaActividad" [value]="ActividadesDiariasSeleccionado?.fechaActividad">
+        <input class="m-2 p-2" type="text" placeholder="doctorId" formControlName="doctorId" [value]="ActividadesDiariasSeleccionado?.doctorId">
+        <button class="btn" type="submit">Enviar</button>
+        <p class="py-4">Presione la tecla ESC o haga clic fuera para cerrar</p>
+      </form>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+  </div>

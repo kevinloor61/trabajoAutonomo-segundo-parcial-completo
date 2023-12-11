@@ -3,6 +3,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^4.17.20",
     "@types/node": "^20.8.6",
     "dotenv": "^16.3.1",
@@ -39,6 +40,7 @@
     "color-convert": "^2.0.1",
     "color-name": "^1.1.4",
     "concat-map": "^0.0.1",
+    "cors": "^2.8.5",
     "create-require": "^1.1.1",
     "cross-spawn": "^7.0.3",
     "diff": "^4.0.2",

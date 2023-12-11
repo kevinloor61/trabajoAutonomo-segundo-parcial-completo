@@ -7,11 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CrudComponent } from './components/crud/crud.component';
+import { CrudActividadesDiariasComponent } from './components/crud-actividades-diarias/crud-actividades-diarias.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CrudComponent
+    CrudComponent,
+    CrudActividadesDiariasComponent
   ],
   imports: [
     BrowserModule,
