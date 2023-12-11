@@ -8,6 +8,10 @@ export * from './dtos';
 export * from './entities/Doctor.entity';
 export * from './repositories/Doctor.repository';
 
+export * from './datasources/Alergias.datasource';
+export * from './dtos';
+export * from './entities/Alergias.entity';
+export * from './repositories/Alergias.repository';
 
 
 export * from './datasources/Pacientes.datasource';
@@ -45,3 +49,8 @@ export * from './use-cases/Doctor/delete-Doctor';
 export * from './use-cases/Doctor/get-Doctor';
 export * from './use-cases/Doctor/get-Doctors';
 
+export * from './use-cases/Alergias/create-Alergias';
+export * from './use-cases/Alergias/update-Alergias';
+export * from './use-cases/Alergias/delete-Alergias';
+export * from './use-cases/Alergias/get-Alergias';
+export * from './use-cases/Alergias/get-Alergiass';
