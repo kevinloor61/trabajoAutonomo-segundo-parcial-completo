@@ -29,7 +29,7 @@ export class  AlergiasDatasourceImpl implements AlergiasDatasource {
   async updateById( updateAlergiaDto: UpdateAlergiaDto ): Promise<AlergiasEntity> {
     await this.findById( updateAlergiaDto.id );
     
-    const updatedAlergias = await prisma.Alergias.update({
+    const updatedAlergias = await prisma.alergias.update({
       where: { id: updateAlergiaDto.id },
       data: updateAlergiaDto!.values
     });
@@ -39,7 +39,7 @@ export class  AlergiasDatasourceImpl implements AlergiasDatasource {
 
   async deleteById( id: number ): Promise<AlergiasEntity> {
     await this.findById( id );
-    const deleted = await prisma.Alergias.delete({
+    const deleted = await prisma.alergias.delete({
       where: { id }
     });
 

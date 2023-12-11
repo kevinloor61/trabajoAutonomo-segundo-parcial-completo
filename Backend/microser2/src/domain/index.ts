@@ -3,6 +3,11 @@ export * from './dtos';
 export * from './entities/ActividadesDiarias.entity';
 export * from './repositories/ActividadesDiarias.repository';
 
+export * from './datasources/Cita.datasource';
+export * from './dtos';
+export * from './entities/Cita.entity';
+export * from './repositories/Cita.repository';
+
 export * from './datasources/Doctor.datasource';
 export * from './dtos';
 export * from './entities/Doctor.entity';
@@ -29,6 +34,13 @@ export * from './use-cases/Pacientes/update-Pacientes';
 export * from './use-cases/Pacientes/delete-Pacientes';
 export * from './use-cases/Pacientes/get-Pacientes';
 export * from './use-cases/Pacientes/get-Pacientess';
+
+export * from './use-cases/Cita/create-Cita';
+export * from './use-cases/Cita/update-Cita';
+export * from './use-cases/Cita/delete-Cita';
+export * from './use-cases/Cita/get-Cita';
+export * from './use-cases/Cita/get-Citas';
+
 
 export * from './use-cases/Consultorio/create-Consultorio';
 export * from './use-cases/Consultorio/update-Consultorio';

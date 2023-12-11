@@ -8,7 +8,7 @@ export class AlergiasEntity {
     ) {}
   
     public static fromObject( object: {[key: string]: any} ): AlergiasEntity {
-      const { id, nombreAlergias,detalleTratamiento } = object;
+      const { id, nombreAlergias, detalleTratamiento } = object;
       if ( !id ) throw 'Id is required';
       if ( !nombreAlergias ) throw 'nombreAlergia is required';
       if ( !detalleTratamiento ) throw 'detalleTratamiento is required';
