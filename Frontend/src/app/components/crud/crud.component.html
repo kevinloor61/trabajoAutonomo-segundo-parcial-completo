@@ -1,0 +1,87 @@
+
+<div class="bodyComponents">
+    <div class="text-center lg:text-left">
+      <h1 class="text-3xl text-center font-bold">Doctor</h1>
+    </div>
+    <div class="flex flex-row justify-between items-center">
+      <div class="flex flex-row">
+        <button class="btn btn-outline btn-accent" onclick="my_modal_3.showModal()">
+          <img src= "../../../assets/imagenes/boton-agregar.png" alt="+">
+          <p class="items-center mx-2">ingresar</p>
+        </button>
+  
+      </div>
+    </div>
+    <hr>
+    <div class="flex flex-row overflow-x-auto justify-self-center" *ngIf="datos.length > 0 ">
+      <table class="table table-zebra text-lg">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Especialidad</th>
+            <th>Correo</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Doctor of datos">
+            <td>{{ Doctor.id }}</td>
+            <td>{{ Doctor.nombre }}</td>
+            <td>{{ Doctor.apellido }}</td>
+            <td>{{ Doctor.especialidad}}</td>
+            <td>{{ Doctor.correo }}</td>
+            
+
+
+            <td>
+              <button class="btn btn-outline btn-info" onclick="my_modal_2.showModal()" (click)="ObtenerDatosE(Doctor)">Editar</button>
+              <button class="btn btn-outline btn-secondary" (click)="Doctor && EliminarDatos(Doctor?.id)">Eliminar</button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+     
+  
+  
+    <dialog id="my_modal_3" class="modal" >
+      <form  [formGroup]="DoctorForm" method="dialog" class="modal-box" (ngSubmit)="AgregarDatos()">
+        
+        <!-- Campos del formulario -->
+        <h3 class="font-bold text-lg"> - CREAR - </h3>
+        <input class="m-2 p-2" type="text" placeholder="Nombre" formControlName="nombre">
+        <input class="m-2 p-2" type="text" placeholder="Apellido" formControlName="apellido">
+        <input class="m-2 p-2" type="text" placeholder="Especialidad" formControlName="especialidad">
+        <input class="m-2 p-2" type="text" placeholder="Correo" formControlName="correo">
+    
+
+        <button class="btn btn-outline btn-error" type="submit">Enviar</button>
+        <p class="py-4">Presione la tecla ESC o haga clic fuera para cerrar</p>
+      </form>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+  
+  
+    <dialog id="my_modal_2" class="modal" >
+      <form  [formGroup]="UpdateDoctorForm" method="dialog" class="modal-box" (ngSubmit)="UpdateDatos()">
+
+        <!-- Campos del formulario -->
+        <h3 class="font-bold text-lg"> - CREAR - </h3>
+        <input class="m-2 p-2" type="text" placeholder="ID" formControlName="id" [value]="doctorSeleccionado?.id">
+        <input class="m-2 p-2" type="text" placeholder="Nombre" formControlName="nombre" [value]="doctorSeleccionado?.nombre">
+        <input class="m-2 p-2" type="text" placeholder="Apellido" formControlName="apellido" [value]="doctorSeleccionado?.apellido">
+        <input class="m-2 p-2" type="text" placeholder="Especialidad" formControlName="especialidad" [value]="doctorSeleccionado?.especialidad">
+        <input class="m-2 p-2" type="text" placeholder="Correo" formControlName="correo" [value]="doctorSeleccionado?.correo">
+        <button class="btn" type="submit">Enviar</button>
+        <p class="py-4">Presione la tecla ESC o haga clic fuera para cerrar</p>
+      </form>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+  </div>
